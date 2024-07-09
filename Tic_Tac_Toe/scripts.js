@@ -22,7 +22,7 @@
  function initalize(){
     cells.forEach(cell => cell.addEventListener("click", cellclicked));
     restartBtn.addEventListener("click", restartGame);
-    statusText.textContent = '${currentPlayer} turn';
+    statusText.textContent = `${currentPlayer} turn`;
     running=true;
 
  }
@@ -34,7 +34,7 @@
 
  function changePlayer(){
    currentPlayer = (currentPlayer == "X") ? "O" : "X";
-   statusText.textContent = '${currentPlayer}'
+   statusText.textContent = `${currentPlayer}`;
  }
  function cellclicked(){
    const cellIndex = this.getAttribute("box");
@@ -48,7 +48,7 @@
  function restartGame(){
    currentPlayer = "x";
    options = ["","","","","","","","",""];
-   statusText.textContent = '${currentPlayer} turn';
+   statusText.textContent = `${currentPlayer} turn`;
    cells.forEach(cell => cell.textContent = "");
    running = true;
 
@@ -69,10 +69,10 @@
       }
    }
    if(roundOne){
-      statusText.textContent = '${currentPlayer} wins';
+      statusText.textContent = `${currentPlayer} wins`;
       running= false;
    }else if(!options.includes("")){
-      statusText.textContent = 'Draw';
+      statusText.textContent = `Draw`;
    } else{
       changePlayer();
    }
